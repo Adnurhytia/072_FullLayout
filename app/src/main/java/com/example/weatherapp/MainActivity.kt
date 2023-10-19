@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -113,6 +114,8 @@ fun HomeScreen() {
         Location()
 
         Spacer(modifier = Modifier.padding(13.dp))
+
+        Weather()
         
     }
 }
@@ -122,7 +125,52 @@ fun Weather() {
     Box(modifier = Modifier
         .fillMaxWidth()
         .clip(RoundedCornerShape(25.dp))
-        .background(color = Color.Cyan))
+        .background(color = Color.Cyan)
+        ){
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+            ){
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ){
+                    Text(text = "Humidity")
+                    Text(text = "98%", fontWeight = FontWeight.Bold, fontSize = 23.sp)
+                }
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ){
+                    Text(text = "UV Index")
+                    Text(text = "9/10", fontWeight = FontWeight.Bold, fontSize = 23.sp)
+                }
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp)
+            ){
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ){
+                    Text(text = "Sunrise")
+                    Text(text = "05.00 AM", fontWeight = FontWeight.Bold, fontSize = 23.sp)
+                }
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ){
+                    Text(text = "Sunset")
+                    Text(text = "05.40 AM", fontWeight = FontWeight.Bold, fontSize = 23.sp)
+                }
+            }
+        }
+    }
+
 }
 
 @Preview(showBackground = true)
